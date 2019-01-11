@@ -8,8 +8,8 @@ if [[ "$#" -eq 0 ]]; then
     # (and thus didn't clean up the PID file)
     find /run /var/run -iname 'docker*.pid' -delete
     # let's pipe through dind (use "sh" because shebang is /bin/bash)
-	# setting log level to error, no need for more details
-	sh /usr/local/bin/dind dockerd \
+    # setting log level to error, no need for more details
+    sh /usr/local/bin/dind dockerd \
         --host=unix:///var/run/docker.sock \
         --log-level=error &
     echo "[ x ] Started docker in docker"
